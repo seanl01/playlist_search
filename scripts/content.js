@@ -26,7 +26,8 @@ function addSearch(list){
         let query = searchBar.value.toUpperCase();
         // console.log(items);
         for (item of items){
-            let label = item.__shady_native_querySelector("yt-formatted-string#label");
+            // let label = item.__shady_native_querySelector("yt-formatted-string#label");
+            let label = item.shadowRoot.querySelector("yt-formatted-string#label");
             if (query == "" || label.innerText.toUpperCase().includes(query)){
                 item.style.display = "block";
             } else {
