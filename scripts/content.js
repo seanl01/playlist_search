@@ -11,6 +11,7 @@ const config = {
 
 function addSearch(list){
     // play list items
+    // let items = list.shadowRoot.childNodes;
     let items = list.childNodes;
     let header = document.querySelector(".style-scope.ytd-add-to-playlist-renderer");
 
@@ -19,7 +20,7 @@ function addSearch(list){
     searchBar.setAttribute("type", "text");
     header.insertAdjacentElement("afterend", searchBar);
 
-    searchBar.style.cssText = "display: block; margin: auto; width: 80%; height: 2rem; padding: 0.4rem; background-color: var(--paper-dialog-background-color); border: 1px solid white; border-radius: 20px; color: white;"
+    searchBar.style.cssText = "display: block;margin: auto;width: 80%;height: 2rem;padding: 0.4rem;background-color: var(--paper-dialog-background-color);border: 1px solid var(--yt-spec-text-primary);border-radius: 20px;color: var(--yt-spec-text-primary);"
     // Upon keystroke, show or hide elements according to text in box
     searchBar.addEventListener('keyup', () => {
         // Search Query
@@ -27,7 +28,7 @@ function addSearch(list){
         // console.log(items);
         for (item of items){
             // let label = item.__shady_native_querySelector("yt-formatted-string#label");
-            let label = item.shadowRoot.querySelector("yt-formatted-string#label");
+            let label = item.querySelector("yt-formatted-string#label");
             if (query == "" || label.innerText.toUpperCase().includes(query)){
                 item.style.display = "block";
             } else {
